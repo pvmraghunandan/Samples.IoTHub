@@ -51,6 +51,9 @@ namespace Samples.IoTHub.Core.Operations
                 MessageId = messageId // set the correlation id to get command response
             };
 
+            // Set the Acknowledgement to Full to receive feedback
+            message.Ack = DeliveryAcknowledgement.Full;
+
             return this.IoTHubContext.ServiceClient.SendAsync(deviceId, message);
         }
     }
